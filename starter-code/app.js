@@ -10,8 +10,11 @@ const logger       = require('morgan');
 const path         = require('path');
 
 
+
+
+
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect('mongodb://localhost/celebrities', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -56,3 +59,15 @@ app.use('/', index);
 
 
 module.exports = app;
+
+
+app.set('port', process.env.PORT || 3000);
+
+/* app.listen(3000, function () {
+  console.log('Example app listening on port ' + port + '!');
+}); */
+
+app.listen(app.get('port'));
+
+
+
